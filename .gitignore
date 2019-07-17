@@ -1,0 +1,17 @@
+/web/bundles/
+/var/cache/*
+/var/logs/*
+/var/sessions/*
+/var/spool/*
+/build/
+/vendor/
+#/composer.phar
+/.idea
+/nbproject/
+/web/uploads
+/app/config/config_parameters.yml
+/app/config/parameters.yml
+/app/config/parameters_test.yml
+.php_cs.cache
+*.php~
+/.env
