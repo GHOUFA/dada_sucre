@@ -10,9 +10,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800');
 .top-header {
     width: 100%;
-    background: #111;
+    background-color: transparent;
     min-height: 40px;
-    margin-bottom: 15px;
     padding: 5px 0;
 }
 .socials.inline-inside a {
@@ -32,7 +31,7 @@
 }
 .top-area-block.top-area-socials.socials-colored-hover {
     float: right;
-    padding: 6px 0 0;
+    padding: 2px 0 0;
 }
 body.building_version .header_style_01 {
     background-color: rgba(0, 0, 0, .2);
@@ -628,6 +627,14 @@ div#services .serv .service-inform-text p {
     overflow: hidden;
 }
 .serv-blog {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 35px;
+    position: relative;
+    z-index: 1;
+}
+.serv-services {
     float: left;
     width: 100%;
     text-align: center;
