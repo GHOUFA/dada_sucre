@@ -1,0 +1,39 @@
+<!-- main menu-->
+<div data-scroll-to-active="true" class="main-menu menu-fixed menu-dark menu-accordion menu-shadow">
+    <!-- main menu header-->
+    {#<div class="main-menu-header">#}
+        {#<input type="text" placeholder="Search" class="menu-search form-control round"/>#}
+    {#</div>#}
+    <!-- / main menu header-->
+    <!-- main menu content-->
+    <div class="main-menu-content">
+        <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+
+            {#{{ render(controller('AgenceDefaultBundle:Default:getSideBar')) }}#}
+
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                {% include(':elements/menus:super_admin.html.twig') %}
+                {#{{ knp_menu_render('AgenceManagerBundle:Builder:superAdminMenu') }}#}
+            {% elseif is_granted('ROLE_SALES') %}
+                {% include(':elements/menus:sales.html.twig') %}
+                {#{{ knp_menu_render('AgenceManagerBundle:Builder:salesMenu') }}#}
+            {% elseif is_granted('ROLE_ACCOUNTING') %}
+                {% include(':elements/menus:accounting.html.twig') %}
+            {% elseif is_granted('ROLE_CONTRACTIONG') %}
+                {% include(':elements/menus:contracting.html.twig') %}
+                {#{{ knp_menu_render('AgenceManagerBundle:Builder:contractingMenu') }}#}
+            {% elseif is_granted('ROLE_TRANSPORT') %}
+                {% include(':elements/menus:transport.html.twig') %}
+            {#{% elseif is_granted('ROLE_AGENCE') %}#}
+                {#{% include(':elements/menus:agence.html.twig') %}#}
+                {#&#123;&#35;{{ knp_menu_render('AgenceManagerBundle:Builder:agenceMenu') }}&#35;&#125;#}
+            {% endif %}
+
+        </ul>
+    </div>
+    <!-- /main menu content-->
+    <!-- main menu footer-->
+    <!-- include includes/menu-footer-->
+    <!-- main menu footer-->
+</div>
+<!-- / main menu-->

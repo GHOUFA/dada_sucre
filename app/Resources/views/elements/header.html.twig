@@ -1,0 +1,16 @@
+<div class="content-header row">
+    {#<div class="content-header-left breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">#}
+    <div class="content-header-right col-md-6 col-xs-12 mb-1">
+        <div class="breadcrumb-wrapper col-xs-12">
+            <ol class="breadcrumb">
+                {% block breadcrumb %}
+                    <li class="breadcrumb-item">
+                        <a href="{{ path('agence_manager_homepage') }}">Tableau de bord</a>
+                    </li>
+                {% endblock %}
+            </ol>
+        </div>
+    </div>
+    <div class="content-header-right col-md-6 col-xs-12 mb-1">
+    </div>
+</div>

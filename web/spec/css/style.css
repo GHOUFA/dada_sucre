@@ -1,0 +1,86 @@
+.os-content{
+    margin-top: -23px;
+}
+
+.os-center{
+    text-align: center;
+}
+
+.os-block{
+    margin-top: 25px;
+}
+
+.os-block2{
+    margin-top: 45px;
+}
+
+.os-block3{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.os-table{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
+.os-table th, .os-table td {
+    border-bottom: 0px !important;
+    padding: 0.75rem 2rem;
+}
+
+.os-payed{
+    background-color: #7DD3BE !important;
+}
+
+.os-facility{
+    Background-Color: OrangeRed !important;
+}
+
+.os-reimbursed{
+    Background-Color: red !important;
+}
+
+.os-right{
+    text-align: right;
+}
+
+.os-float-r{
+    float: right;
+}
+
+.os-ndisplay{
+    display: none;
+}
+
+.os-font-size-s{
+    font-size: small!important;
+}
+
+.chartdiv {
+    width: 100%;
+    height: 400px;
+}
+
+.os-logo{
+    display: inline-block;
+    margin-top: -10px;
+}
+
+.os-error-code{
+    /*font-size: xx-large;*/
+    font-size: 50px;
+}
+
+.os-pointer{
+    cursor: pointer;
+}
+
+table.dataTable tfoot th, table.dataTable tfoot td {
+    padding: 10px 18px 6px 18px;
+    border-top: 1px solid #111;
+    /*font-size: larger;*/
+    font-weight: 600;
+}

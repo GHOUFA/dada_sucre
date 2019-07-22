@@ -1,0 +1,124 @@
+/* NINTH EXAMPLE*/
+.view-ninth .mask-1, .view-ninth .mask-2 {
+    height:600px;
+    width: 600px;
+    background: rgba(217, 5, 37, 0.69);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+    -webkit-transition: all 0.3s ease-in-out 0.6s;
+    -moz-transition: all 0.3s ease-in-out 0.6s;
+    -o-transition: all 0.3s ease-in-out 0.6s;
+    transition: all 0.3s ease-in-out 0.6s;
+}
+.view-ninth .mask-1 {
+    left: auto;
+    right: 0;
+    -webkit-transform: rotate(56.5deg) translateX(-180px);
+    -moz-transform: rotate(56.5deg) translateX(-180px);
+    -o-transform: rotate(56.5deg) translateX(-180px);
+    -ms-transform: rotate(56.5deg) translateX(-180px);
+    transform: rotate(56.5deg) translateX(-200px);
+    -webkit-transform-origin: 100% 0%;
+    -moz-transform-origin: 100% 0%;
+    -o-transform-origin: 100% 0%;
+    -ms-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+}
+.view-ninth .mask-2 {
+    top: auto;
+    bottom: 0;
+    -webkit-transform: rotate(56.5deg) translateX(180px);
+    -moz-transform: rotate(56.5deg) translateX(180px);
+    -o-transform: rotate(56.5deg) translateX(180px);
+    -ms-transform: rotate(56.5deg) translateX(180px);
+    transform: rotate(56.5deg) translateX(200px);
+    -webkit-transform-origin: 0% 100%;
+    -moz-transform-origin: 0% 100%;
+    -o-transform-origin: 0% 100%;
+    -ms-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+}
+.view-ninth .content {
+    background: rgba(0, 0, 0, 0.9);
+    height: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    width: 100%;
+    overflow: hidden;
+    -webkit-transform: rotate(-33.5deg) translate(-112px, 166px);
+    -moz-transform: rotate(-33.5deg) translate(-112px, 166px);
+    -o-transform: rotate(-33.5deg) translate(-112px, 166px);
+    -ms-transform: rotate(-33.5deg) translate(-112px, 166px);
+    transform: rotate(-33.5deg) translate(-112px, 166px);
+    -webkit-transform-origin: 0% 100%;
+    -moz-transform-origin: 0% 100%;
+    -o-transform-origin: 0% 100%;
+    -ms-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    -webkit-transition: all 0.4s ease-in-out 0.3s;
+    -moz-transition: all 0.4s ease-in-out 0.3s;
+    -o-transition: all 0.4s ease-in-out 0.3s;
+    transition: all 0.4s ease-in-out 0.3s;
+}
+.view-ninth h2 {
+    background: transparent;
+    margin-top: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.view-ninth h2.h2-img {
+    background: #d90525;
+	position:absolute;
+	bottom:0px;
+	width:100%;
+    -webkit-transition: all 0.4s ease-in-out 0.3s;
+    -moz-transition: all 0.4s ease-in-out 0.3s;
+    -o-transition: all 0.4s ease-in-out 0.3s;
+    transition: all 0.4s ease-in-out 0.3s;
+}
+.view-ninth:hover h2.h2-img {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    -webkit-transition: all 0.4s ease-in-out 0.3s;
+    -moz-transition: all 0.4s ease-in-out 0.3s;
+    -o-transition: all 0.4s ease-in-out 0.3s;
+    transition: all 0.4s ease-in-out 0.3s;
+}
+.view-ninth a.info {
+	
+}
+.view-ninth:hover .content {
+    height: 150px;
+    width: 100%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    filter: alpha(opacity=90);
+    opacity: 0.9;
+    top: 50px;
+    -webkit-transform: rotate(0deg) translate(0, 0);
+    -moz-transform: rotate(0deg) translate(0, 0);
+    -o-transform: rotate(0deg) translate(0, 0);
+    -ms-transform: rotate(0deg) translate(0, 0);
+    transform: rotate(0deg) translate(0, 0);
+}
+.view-ninth:hover .mask-1, .view-ninth:hover .mask-2 {
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+}
+.view-ninth:hover .mask-1 {
+    -webkit-transform: rotate(56.5deg) translateX(6px);
+    -moz-transform: rotate(56.5deg) translateX(6px);
+    -o-transform: rotate(56.5deg) translateX(6px);
+    -ms-transform: rotate(56.5deg) translateX(6px);
+    transform: rotate(56.5deg) translateX(6px);
+}
+.view-ninth:hover .mask-2 {
+    -webkit-transform: rotate(56.5deg) translateX(-6px);
+    -moz-transform: rotate(56.5deg) translateX(-6px);
+    -o-transform: rotate(56.5deg) translateX(-6px);
+    -ms-transform: rotate(56.5deg) translateX(-6px);
+    transform: rotate(56.5deg) translateX(-6px);
+}

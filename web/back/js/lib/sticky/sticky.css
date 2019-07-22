@@ -1,0 +1,36 @@
+div.sticky-queue{position:fixed;background:#000;background:#fff;border-width:0 1px 1px;border-color:#bbb;border-style:solid;width:280px;z-index:989}
+div.sticky-note{padding-right:20px;padding-left:14px;font-weight:700}
+div.sticky{font-size:12px;color:#333;display:none;position:relative;padding:10px}
+div.sticky p {margin-bottom:0}
+.st-close{position:absolute;top:4px;right:6px}
+.top-right,.top-left,.top-center{top:34px}
+.bottom-right,.bottom-left{bottom:-2px}
+.border-top-right,.border-top-left,.border-top-center{border-top:1px solid #eee;border-top:1px solid rgba(0,0,0,.1)}
+.border-bottom-right,.border-bottom-left{border-top:1px solid #bbb}
+.sticky.st-error,
+.sticky.st-success,
+.sticky.st-info {
+	position: relative;
+}
+.sticky.st-error::before,
+.sticky.st-success::before,
+.sticky.st-info::before {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 6px;
+	height: 90%;
+	top: 5%;
+	left: 2px;
+}
+.sticky.st-error{color:#C62626}
+.sticky.st-error::before{background-color:#C62626}
+.sticky.st-success{color:#7fae00}
+.sticky.st-success::before{background-color:#7fae00}
+.sticky.st-info{color:#00a6fc}
+.sticky.st-info::before{background-color:#00a6fc}
+
+
+.top-right,.bottom-right{right:20px}
+.top-left,.bottom-left{left:20px}
+.top-center{left:50%;margin-left:-140px}

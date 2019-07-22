@@ -1,0 +1,125 @@
+<li {% if app.request.attributes.get('_route') in ['agence_manager_homepage'] %} class="active" {% else %} class="nav-item"{% endif %} %>
+    <a href="{{ path('agence_manager_homepage') }}">
+        <i class="icon-home3"></i>
+        <span data-i18n="nav.form_layouts.form_layout_basic" class="menu-title">Tableau de bord</span>
+        {#<span class="tag tag tag-primary tag-pill float-xs-right mr-2">2</span>#}
+    </a>
+</li>
+<li {% if app.request.attributes.get('_route') in ['agence_managerdaily_homepage'] %} class="active" {% else %} class="nav-item"{% endif %} %>
+    <a href="{{ path('agence_managerdaily_homepage') }}">
+        <i class="icon-home3"></i>
+        <span data-i18n="nav.form_layouts.form_layout_basic" class="menu-title">Etat Journalié</span>
+        {#<span class="tag tag tag-primary tag-pill float-xs-right mr-2">2</span>#}
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="#">
+        <i class="icon-file-text"></i>
+        <span data-i18n="nav.dash.main" class="menu-title">Bon de reçu</span>
+    </a>
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['agence_receipt_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('agence_receipt_new') }}" data-i18n="nav.dash.main" class="menu-item">Nouveau bon</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['agence_receipt_index', 'agence_receipt_show', 'agence_receipt_edit', 'agence_operation_receipt_show'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('agence_receipt_index') }}" data-i18n="nav.dash.main" class="menu-item">Liste des bons</a>
+        </li>
+    </ul>
+</li>
+
+<li class=" nav-item">
+    <a href="#">
+        <img src="{{ asset('app-assets/images/transport.png') }}" />
+        <span data-i18n="nav.dash.main" class="menu-title">Transport</span>
+    </a>
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['transport_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('transport_new') }}" data-i18n="nav.dash.main" class="menu-item">Nouvel enregistrement</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['transport_index', 'transport_show', 'transport_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('transport_index') }}" data-i18n="nav.dash.main" class="menu-item">Liste des enregistrements</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['carType_index', 'carType_edit', 'carType_show', 'carType_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('carType_index') }}" data-i18n="nav.dash.main" class="menu-item">Paramètres des véhicules</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['drivers_index', 'drivers_show', 'drivers_new', 'drivers_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('drivers_index') }}" data-i18n="nav.dash.main" class="menu-item">Paramètre des chauffeurs</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['transport_bilan', 'transport_bilan_ditail'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('transport_bilan') }}" data-i18n="nav.dash.main" class="menu-item">Bilan</a>
+        </li>
+    </ul>
+</li>
+
+<li class=" nav-item">
+    <a href="#">
+        <i class="icon-office"></i>
+        <span data-i18n="nav.dash.main" class="menu-title">H&ocirc;tels</span>
+    </a>
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['hotel_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('hotel_new') }}" data-i18n="nav.dash.main" class="menu-item">Nouvel enregistrement</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['hotel_index', 'hotel_show', 'hotel_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('hotel_index') }}" data-i18n="nav.dash.main" class="menu-item">Liste des enregistrements</a>
+        </li>
+        <li class="has-sub is-shown"><a href="#" data-i18n="nav.menu_levels.second_level_child.main" class="menu-item">Paramètre Module Hôtels </a>
+            <ul class="menu-content">
+                <li {% if app.request.attributes.get('_route') in ['country_index', 'country_show', 'country_new', 'country_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+                    <a href="{{ path('country_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Pays</a>
+                </li>
+                <li {% if app.request.attributes.get('_route') in ['city_index', 'city_show', 'city_new', 'city_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+                    <a href="{{ path('city_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Villes</a>
+                </li>
+                <li {% if app.request.attributes.get('_route') in ['arrangement_index', 'arrangement_show', 'arrangement_new', 'arrangement_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+                    <a href="{{ path('arrangement_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Arrangement</a>
+                </li>
+                <li {% if app.request.attributes.get('_route') in ['room_category_index', 'room_category_show', 'room_category_new', 'room_category_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+                    <a href="{{ path('room_category_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Catégories</a>
+                </li>
+                <li {% if app.request.attributes.get('_route') in ['name_hotel_index', 'name_hotel_show', 'name_hotel_new', 'name_hotel_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+                    <a href="{{ path('name_hotel_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Hôtels</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</li>
+
+<li {% if app.request.attributes.get('_route') in ['fos_message_thread_view'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+    <a href="#">
+        <i class="icon-envelope"></i>
+        <span data-i18n="nav.dash.main" class="menu-title">Demande</span>
+        <span class="tag tag tag-primary tag-pill float-xs-right mr-2">{{ fos_message_nb_unread() }}</span>
+    </a>
+    <ul class="menu-content os-font-size-s">
+        <li {% if app.request.attributes.get('_route') in ['fos_message_thread_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('fos_message_thread_new') }}" data-i18n="nav.dash.main" class="menu-item">Nouveau Message</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['fos_message_inbox'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('fos_message_inbox') }}" data-i18n="nav.dash.main" class="menu-item">
+                <span class="menu-title">Boite de réception</span>
+                <span class="tag tag tag-primary tag-pill float-xs-right mr-2">{{ fos_message_nb_unread() }}</span>
+            </a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['fos_message_sent'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('fos_message_sent') }}" data-i18n="nav.dash.main" class="menu-item">Messages envoyés</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['fos_message_deleted'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('fos_message_deleted') }}" data-i18n="nav.dash.main" class="menu-item">Messages supprimés</a>
+        </li>
+    </ul>
+</li>
+
+<li {% if app.request.attributes.get('_route') in ['agence_agence_homepage'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+    <a href="#">
+        <i class="icon-user"></i>
+        <span data-i18n="nav.dash.main" class="menu-title">Profil</span>
+    </a>
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['fos_user_profile_show', 'fos_user_profile_edit', 'fos_user_change_password'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('fos_user_profile_show') }}" data-i18n="nav.dash.main" class="menu-item">Mon profil</a>
+            {#<a href="{{ path('agence_agence_homepage', {'type' : 'all'}) }}" data-i18n="nav.dash.main" class="menu-item">Liste des profils</a>#}
+        </li>
+    </ul>
+</li>

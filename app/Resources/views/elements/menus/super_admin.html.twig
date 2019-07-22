@@ -1,0 +1,306 @@
+<li {% if app.request.attributes.get('_route') in ['agence_manager_homepage'] %} class="active" {% else %} class="nav-item"{% endif %} %>
+    <a href="{{ path('agence_manager_homepage') }}">
+        <i class="icon-home3"></i>
+        <span data-i18n="nav.form_layouts.form_layout_basic" class="menu-title">Tableau de bord</span>
+        {#<span class="tag tag tag-primary tag-pill float-xs-right mr-2">2</span>#}
+    </a>
+</li>
+
+<li {% if app.request.attributes.get('_route') in ['agence_managerdaily_homepage'] %} class="active" {% else %} class="nav-item"{% endif %} %>
+    <a href="{{ path('agence_managerdaily_homepage') }}">
+        <i class="icon-home3"></i>
+        <span data-i18n="nav.form_layouts.form_layout_basic" class="menu-title">Etat Journalié</span>
+        {#<span class="tag tag tag-primary tag-pill float-xs-right mr-2">2</span>#}
+    </a>
+</li>
+
+<li {% if app.request.attributes.get('_route') in ['clients_index', 'clients_new', 'clients_show', 'clients_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+    <a href="#">
+        <i class="icon-users"></i>
+        <span data-i18n="nav.dash.main" class="menu-title">Gestion des clients</span>
+    </a>
+    <ul class="menu-content">
+        <li class="nav-item">
+            <a href="{{ path('clients_index', {'type': constant('Agence\\TicketingBundle\\Entity\\Client::TYPE_PASSENGER')}) }}" data-i18n="nav.dash.main" class="menu-item">Passager</a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('clients_index', {'type': constant('Agence\\TicketingBundle\\Entity\\Client::TYPE_SOCIETY')}) }}" data-i18n="nav.dash.main" class="menu-item">Société</a>
+        </li>
+    </ul>
+</li>
+
+{#<li {% if app.request.attributes.get('_route') in ['plane_ship_index', 'plane_ship_show', 'plane_ship_new', 'plane_ship_edit', 'plane_ship_delete'] %} class="active open" {% else %} class="nav-item"{% endif %}>#}
+<li class="nav-item">
+    <a href="#">
+        <i class="icon-airplane"></i>
+        <span data-i18n="nav.dash.main" class="menu-title">Billet d’avion</span>
+    </a>
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['plane_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('plane_new', {'type' : constant('Agence\\TicketingBundle\\Entity\\AvionBateau::TYPE_PLANE')}) }}" data-i18n="nav.dash.main" class="menu-item">Nouvel enregistrement</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['plane_index', 'plane_show', 'plane_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('plane_index', {'type' : constant('Agence\\TicketingBundle\\Entity\\AvionBateau::TYPE_PLANE')}) }}" data-i18n="nav.dash.main" class="menu-item">Liste des enregistrements</a>
+        </li>
+    </ul>
+</li>
+
+{#<li {% if app.request.attributes.get('_route') in ['plane_ship_index', 'plane_ship_show', 'plane_ship_new', 'plane_ship_edit', 'plane_ship_delete'] %} class="active open" {% else %} class="nav-item"{% endif %}>#}
+<li class="nav-item">
+    <a href="#">
+        <img src="{{ asset('app-assets/images/bateau.png') }}" />
+        <span data-i18n="nav.dash.main" class="menu-title">Billet de bateau</span>
+    </a>
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['ship_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('ship_new', {'type' : constant('Agence\\TicketingBundle\\Entity\\AvionBateau::TYPE_SHIP')}) }}" data-i18n="nav.dash.main" class="menu-item">Nouvel enregistrement</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['ship_index', 'ship_show', 'ship_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('ship_index', {'type' : constant('Agence\\TicketingBundle\\Entity\\AvionBateau::TYPE_SHIP')}) }}" data-i18n="nav.dash.main" class="menu-item">Liste des enregistrements</a>
+        </li>
+    </ul>
+</li>
+
+{#<li {% if app.request.attributes.get('_route') in ['plane_ship_index', 'plane_ship_show', 'plane_ship_new', 'plane_ship_edit', 'plane_ship_delete','destination_index','destination_show' ,'destination_edit' , 'destination_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>#}
+<li class="nav-item">
+    <a href="#">
+        <img src="{{ asset('app-assets/images/baggage.png') }}" />
+        <span data-i18n="nav.dash.main" class="menu-title">Voyages organisé</span>
+    </a>
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['organized_trip_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('organized_trip_new', {'type' : constant('Agence\\TicketingBundle\\Entity\\AvionBateau::TYPE_ORGANIZED_TRIP')}) }}" data-i18n="nav.dash.main" class="menu-item">Nouvel enregistrement</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['organized_trip_index', 'organized_trip_show', 'organized_trip_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('organized_trip_index', {'type' : constant('Agence\\TicketingBundle\\Entity\\AvionBateau::TYPE_ORGANIZED_TRIP')}) }}" data-i18n="nav.dash.main" class="menu-item">Liste des enregistrements</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['destination_index','destination_show' ,'destination_edit' , 'destination_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+        <a href="{{ path('destination_index') }}" data-i18n="nav.dash.main" class="menu-item">Paramètre des destinations </a>
+        </li>
+    </ul>
+</li>
+
+{#<li {% if app.request.attributes.get('_route') in ['reservation_visa_index', 'reservation_visa_show', 'reservation_visa_new', 'reservation_visa_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>#}
+<li class="nav-item">
+    <a href="#">
+        <img src="{{ asset('app-assets/images/visa1600.png') }}" />
+        <span data-i18n="nav.dash.main" class="menu-title">Demande de VISA</span>
+    </a>
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['reservation_visa_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('reservation_visa_new') }}" data-i18n="nav.dash.main" class="menu-item">Nouvel enregistrement</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['reservation_visa_index', 'reservation_visa_show', 'reservation_visa_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('reservation_visa_index') }}" data-i18n="nav.dash.main" class="menu-item">Liste des enregistrements</a>
+        </li>
+    </ul>
+</li>
+
+{#<li {% if app.request.attributes.get('_route') in ['plane_ship_index', 'plane_ship_show', 'plane_ship_new', 'plane_ship_edit', 'plane_ship_delete','destination_index','destination_show' ,'destination_edit' , 'destination_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>#}
+<li class="nav-item">
+    <a href="#">
+        <img src="{{ asset('app-assets/images/icon-assurance.png') }}" />
+        <span data-i18n="nav.dash.main" class="menu-title">Assurance</span>
+    </a>
+    <ul class="menu-content">
+        <li class="nav-item">
+            <a href="{{ path('plane_ship_new', {'type' : constant('Agence\\ManagerBundle\\Entity\\TypeTicket::TYPE_ASSURANCE')}) }}" data-i18n="nav.dash.main" class="menu-item">Nouvel enregistrement</a>
+        </li>
+        <li>
+            <a href="{{ path('plane_ship_index', {'type' : constant('Agence\\ManagerBundle\\Entity\\TypeTicket::TYPE_ASSURANCE')}) }}" data-i18n="nav.dash.main" class="menu-item">Liste des enregistrements</a>
+        </li>
+    </ul>
+</li>
+
+<li class=" nav-item">
+    <a href="#">
+        <img src="{{ asset('app-assets/images/transport.png') }}" />
+        <span data-i18n="nav.dash.main" class="menu-title">Transport</span>
+    </a>
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['transport_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('transport_new') }}" data-i18n="nav.dash.main" class="menu-item">Nouvel enregistrement</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['transport_index', 'transport_show', 'transport_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('transport_index') }}" data-i18n="nav.dash.main" class="menu-item">Liste des enregistrements</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['carType_index', 'carType_edit', 'carType_show', 'carType_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('carType_index') }}" data-i18n="nav.dash.main" class="menu-item">Paramètres des véhicules</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['drivers_index', 'drivers_show', 'drivers_new', 'drivers_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('drivers_index') }}" data-i18n="nav.dash.main" class="menu-item">Paramètre des chauffeurs</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['transport_bilan', 'transport_bilan_ditail'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('transport_bilan') }}" data-i18n="nav.dash.main" class="menu-item">Bilan</a>
+        </li>
+    </ul>
+</li>
+
+<li class=" nav-item">
+    <a href="#">
+        <i class="icon-office"></i>
+        <span data-i18n="nav.dash.main" class="menu-title">H&ocirc;tels</span>
+    </a>
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['hotel_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('hotel_new') }}" data-i18n="nav.dash.main" class="menu-item">Nouvel enregistrement</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['hotel_index', 'hotel_show', 'hotel_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('hotel_index') }}" data-i18n="nav.dash.main" class="menu-item">Liste des enregistrements</a>
+        </li>
+		<li class="has-sub is-shown"><a href="#" data-i18n="nav.menu_levels.second_level_child.main" class="menu-item">Paramètre Module Hôtels </a>
+			<ul class="menu-content">
+				<li {% if app.request.attributes.get('_route') in ['country_index', 'country_show', 'country_new', 'country_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+					<a href="{{ path('country_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Pays</a>
+				</li>
+				<li {% if app.request.attributes.get('_route') in ['city_index', 'city_show', 'city_new', 'city_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+					<a href="{{ path('city_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Villes</a>
+				</li>
+				<li {% if app.request.attributes.get('_route') in ['arrangement_index', 'arrangement_show', 'arrangement_new', 'arrangement_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+					<a href="{{ path('arrangement_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Arrangement</a>
+				</li>
+				<li {% if app.request.attributes.get('_route') in ['room_category_index', 'room_category_show', 'room_category_new', 'room_category_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+					<a href="{{ path('room_category_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Catégories</a>
+				</li>
+				<li {% if app.request.attributes.get('_route') in ['name_hotel_index', 'name_hotel_show', 'name_hotel_new', 'name_hotel_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+					<a href="{{ path('name_hotel_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Hôtels</a>
+				</li>
+			</ul>
+		</li>
+    </ul>
+</li>
+
+<li class=" nav-item">
+    <a href="#">
+        <img src="{{ asset('app-assets/images/makkah.png') }}" />
+        <span data-i18n="nav.dash.main" class="menu-title">Omra</span>
+    </a>
+    
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['omra_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('omra_new') }}" data-i18n="nav.dash.main" class="menu-item">Nouvel enregistrement</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['omra_index', 'omra_show', 'omra_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('omra_index') }}" data-i18n="nav.dash.main" class="menu-item">Liste des enregistrements</a>
+        </li>
+		<li class="has-sub is-shown"><a href="#" data-i18n="nav.menu_levels.second_level_child.main" class="menu-item">Paramètre Module Omra </a>
+			<ul class="menu-content">
+				<li {% if app.request.attributes.get('_route') in ['omras_hotel_index', 'omras_hotel_new', 'omras_hotel_show', 'omras_hotel_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+					<a href="{{ path('omras_hotel_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Hôtels</a>
+				</li>
+				<li {% if app.request.attributes.get('_route') in ['airline_index', 'airline_new', 'airline_show', 'airline_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+					<a href="{{ path('airline_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Compagnie aérienne</a>
+				</li>
+				<li {% if app.request.attributes.get('_route') in ['airport_index', 'airport_new', 'airport_show', 'airport_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+					<a href="{{ path('airport_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Aéroport</a>
+				</li>
+				<li  {% if app.request.attributes.get('_route') in ['departure_index', 'departure_new', 'departure_show', 'departure_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+					<a href="{{ path('departure_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Date de départ</a>
+				</li>
+				<li {% if app.request.attributes.get('_route') in ['productomra_index', 'productomra_new', 'productomra_show', 'productomra_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+					<a href="{{ path('productomra_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Produits Omra</a>
+				</li>
+				<li {% if app.request.attributes.get('_route') in ['groupleader_index', 'groupleader_new', 'groupleader_show', 'groupleader_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+					<a href="{{ path('groupleader_index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">Gestion Rabatteurs</a>
+				</li>
+			</ul>
+		</li>
+		<li {% if app.request.attributes.get('_route') in ['omra_bilan_passengers'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+			<a href="{{ path('omra_bilan_passengers') }}" data-i18n="nav.dash.main" class="menu-item">Bilan</a>
+		</li>
+		{#<li {% if app.request.attributes.get('_route') in ['omra_bilan_rabats'] %} class="active open" {% else %} class="nav-item"{% endif %}>#}
+			{#<a href="{{ path('omra_bilan_rabats') }}" data-i18n="nav.dash.main" class="menu-item">Bilan Rabatteurs</a>#}
+		{#</li>#}
+		<li {% if app.request.attributes.get('_route') in ['omra_bilan_statistics'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+			<a href="{{ path('omra_bilan_statistics') }}" data-i18n="nav.dash.main" class="menu-item">Omra par facilité</a>
+		</li>
+    </ul>
+</li>
+
+<li class="nav-item">
+    <a href="#">
+        <i class="icon-file-text2"></i>
+        <span data-i18n="nav.dash.main" class="menu-title">Facturations</span>
+    </a>
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['agence_manager_invoice'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('agence_manager_invoice') }}" data-i18n="nav.dash.main" class="menu-item">Liste des factures</a>
+        </li>
+        {#<li {% if app.request.attributes.get('_route') in ['reimbursement_index', 'reimbursement_set', 'reimbursement_show'] %} class="active open" {% else %} class="nav-item"{% endif %}>#}
+            {#<a href="{{ path('reimbursement_index') }}" data-i18n="nav.dash.main" class="menu-item">Liste remboursement</a>#}
+        {#</li>#}
+        <li {% if app.request.attributes.get('_route') in ['params_facture_index', 'params_facture_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('params_facture_index') }}" data-i18n="nav.dash.main" class="menu-item">Paramètres TVA</a>
+        </li>
+    </ul>
+</li>
+
+<li class="nav-item">
+    <a href="#">
+        <i class="icon-file-text"></i>
+        <span data-i18n="nav.dash.main" class="menu-title">Bon de reçu</span>
+    </a>
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['agence_receipt_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('agence_receipt_new') }}" data-i18n="nav.dash.main" class="menu-item">Nouveau bon</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['agence_receipt_index', 'agence_receipt_show', 'agence_receipt_edit', 'agence_operation_receipt_show'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('agence_receipt_index') }}" data-i18n="nav.dash.main" class="menu-item">Liste des bons</a>
+        </li>
+    </ul>
+</li>
+
+<li {% if app.request.attributes.get('_route') in ['fos_message_thread_view'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+    <a href="#">
+        <i class="icon-envelope"></i>
+        <span data-i18n="nav.dash.main" class="menu-title">Demande</span>
+        <span class="tag tag tag-primary tag-pill float-xs-right mr-2">{{ fos_message_nb_unread() }}</span>
+    </a>
+    <ul class="menu-content os-font-size-s">
+        <li {% if app.request.attributes.get('_route') in ['fos_message_thread_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('fos_message_thread_new') }}" data-i18n="nav.dash.main" class="menu-item">Nouveau Message</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['fos_message_inbox'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('fos_message_inbox') }}" data-i18n="nav.dash.main" class="menu-item">
+                <span class="menu-title">Boite de réception</span>
+                <span class="tag tag tag-primary tag-pill float-xs-right mr-2">{{ fos_message_nb_unread() }}</span>
+            </a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['fos_message_sent'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('fos_message_sent') }}" data-i18n="nav.dash.main" class="menu-item">Messages envoyés</a>
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['fos_message_deleted'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('fos_message_deleted') }}" data-i18n="nav.dash.main" class="menu-item">Messages supprimés</a>
+        </li>
+    </ul>
+</li>
+
+<li {% if app.request.attributes.get('_route') in ['agence_agence_homepage'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+    <a href="#">
+        <i class="icon-group"></i>
+        <span data-i18n="nav.dash.main" class="menu-title">Utilisateurs</span>
+    </a>
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['agence_agence_homepage', 'agence_agence_new', 'agence_agence_show', 'agence_agence_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('agence_agence_homepage') }}" data-i18n="nav.dash.main" class="menu-item">Liste des profils</a>
+            {#<a href="{{ path('agence_agence_homepage', {'type' : 'all'}) }}" data-i18n="nav.dash.main" class="menu-item">Liste des profils</a>#}
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['agence_index', 'agence_new', 'agence_edit', 'agence_show'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('agence_index') }}" data-i18n="nav.dash.main" class="menu-item">Liste des agences</a>
+            {#<a href="{{ path('agence_agence_homepage', {'type' : 'all'}) }}" data-i18n="nav.dash.main" class="menu-item">Liste des profils</a>#}
+        </li>
+        <li {% if app.request.attributes.get('_route') in ['fos_user_profile_show', 'fos_user_profile_edit', 'fos_user_change_password'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('fos_user_profile_show') }}" data-i18n="nav.dash.main" class="menu-item">Mon profil</a>
+            {#<a href="{{ path('agence_agence_homepage', {'type' : 'all'}) }}" data-i18n="nav.dash.main" class="menu-item">Liste des profils</a>#}
+        </li>
+        {#<li  {% if app.request.attributes.get('_route') in ['agence_agence_homepage', 'agence_agence_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>#}
+            {#<a href="{{ path('agence_agence_homepage', {'type': constant('Agence\\UserBundle\\Entity\\User::Type_AGENCE')}) }}" data-i18n="nav.dash.main" class="menu-item">Agences</a>#}
+        {#</li>#}
+        {#<li {% if app.request.attributes.get('_route') in ['agence_agence_homepage', 'agence_agence_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>#}
+            {#<a href="{{ path('agence_agence_homepage', {'type': constant('Agence\\UserBundle\\Entity\\User::Type_SALES')}) }}" data-i18n="nav.dash.main" class="menu-item">Commercials</a>#}
+        {#</li>#}
+        {#<li {% if app.request.attributes.get('_route') in ['agence_agence_homepage', 'agence_agence_new'] %} class="active open" {% else %} class="nav-item"{% endif %}>#}
+            {#<a href="{{ path('agence_agence_homepage', {'type': constant('Agence\\UserBundle\\Entity\\User::Type_CONTRACTIONG')}) }}" data-i18n="nav.dash.main" class="menu-item">Agent de saisie</a>#}
+        {#</li>#}
+    </ul>
+</li>

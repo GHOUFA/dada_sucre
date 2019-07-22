@@ -1,0 +1,26 @@
+.navbar-inner {filter:none}
+#fade-menu ul li ul li a {background:#464B4C}
+.nav-icons ul > li > a, .nav-icons ul > li > span {background:#f1f1f1}
+.nav-icons ul > li.active > span {line-height:30px}
+.nav-icons ul > li.active, .nav-icons ul > li:active {margin:0}
+#breadcrumbs li {margin-right:6px}
+#breadcrumbs a {padding:3px 10px;background:#ddd}
+.cboxPhoto {max-width: none}
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {display:inline;min-height:20px !important}
+.todo-list .add_box input {min-height:20px !important}
+.pagination ul > li > a, .nav-beoro li {height:20px;line-height:20px}
+.pagination ul > li > a { font-size: 11px; padding: 0 6px; line-height: 20px; border: 1px solid #d1d1d1; margin-right: 4px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
+.pagination ul {font-size:11px}
+.todo-list .add_box input {padding-bottom:0}
+.fc-event-skin {color:#333}
+.wmk_grid li.inactive {filter: alpha(opacity=0)}
+#pageNav a {background:#ccc}
+#pageNav a:hover,#pageNav li.current a {background:#bbb}
+.ibutton-handle {height:21px}
+.flot-base > div {width:inherit !important;height:inherit !important}
+.yaxisLabel {filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);}
+.jQ-list dl {border: 0 solid transparent}
+#large_grid ul li .imgTitle {background:#555}
+.w-box-header .btn-group {margin-top:-3px}
+.select2-container-multi .select2-choices .select2-search-field input {height:17px;line-height:17px;margin:0;min-height:15px !important}
+.scrollup {background:#000}

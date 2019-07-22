@@ -1,0 +1,66 @@
+/* PowerTip Plugin */
+#powerTip {
+	cursor: default;
+	background-color: #333; /* fallback for browsers that dont support rgba */
+	background-color: rgba(0, 0, 0, 0.8);
+	border-radius: 6px;
+	color: #FFF;
+	display: none;
+	padding: 4px 12px;
+	position: absolute;
+	white-space: nowrap;
+	z-index: 2;
+	font-size:11px;
+	line-height:16px
+}
+#powerTip.n:before, #powerTip.e:before, #powerTip.s:before, #powerTip.w:before,
+#powerTip.ne:before, #powerTip.nw:before, #powerTip.se:before, #powerTip.sw:before {
+	content: "";
+	position: absolute;
+}
+#powerTip.n:before, #powerTip.s:before {
+	border-right: 6px solid transparent;
+	border-left: 6px solid transparent;
+	left: 50%;
+	margin-left: -6px;  
+}
+#powerTip.e:before, #powerTip.w:before {
+	border-bottom: 6px solid transparent;
+	border-top:  6px solid transparent;
+	margin-top: -6px;
+	top: 50%;
+}
+#powerTip.n:before {
+	border-top: 6px solid rgba(0, 0, 0, 0.8);
+	bottom: -6px;
+}
+#powerTip.e:before {
+	border-right: 8px solid rgba(0, 0, 0, 0.8);
+	left: -6px;
+}
+#powerTip.s:before {
+	border-bottom: 6px solid rgba(0, 0, 0, 0.8);
+	top: -6px;
+}
+#powerTip.w:before {
+	border-left: 6px solid rgba(0, 0, 0, 0.8);
+	right: -6px;
+}
+#powerTip.ne:before, #powerTip.se:before {
+	border-right: 6px solid transparent;
+	border-left: 0;
+	left: 6px;
+}
+#powerTip.nw:before, #powerTip.sw:before {
+	border-left: 6px solid transparent;
+	border-right: 0;
+	right: 6px;
+}
+#powerTip.ne:before, #powerTip.nw:before {
+	border-top: 6px solid rgba(0, 0, 0, 0.8);
+	bottom: -6px;
+}
+#powerTip.se:before, #powerTip.sw:before {
+	border-bottom: 6px solid rgba(0, 0, 0, 0.8);
+	top: -6px;
+}
