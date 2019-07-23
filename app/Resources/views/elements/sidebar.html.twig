@@ -10,7 +10,7 @@
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
 
             {#{{ render(controller('AgenceDefaultBundle:Default:getSideBar')) }}#}
-
+            {% include(':elements/menus:super_admin.html.twig') %}
             {% if is_granted('ROLE_SUPER_ADMIN') %}
                 {% include(':elements/menus:super_admin.html.twig') %}
                 {#{{ knp_menu_render('AgenceManagerBundle:Builder:superAdminMenu') }}#}
