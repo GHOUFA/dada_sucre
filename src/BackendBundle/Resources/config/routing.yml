@@ -5,3 +5,17 @@ backend_homepage:
 security_user_list:
     path:     /user/list
     defaults: { _controller: BackendBundle:User:list }
+
+security_user_new:
+    path:     /new-{type}
+    defaults: { _controller: BackendBundle:User:new }
+    methods:  [GET, POST]
+security_user_show:
+    path:     /detail/{id}
+    defaults: { _controller: BackendBundle:User:show }
+    methods:  GET
+
+security_user_edit:
+    path:     /edit/{id}
+    defaults: { _controller: BackendBundle:User:edit }
+    methods:  [GET, POST]

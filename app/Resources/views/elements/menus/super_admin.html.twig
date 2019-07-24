@@ -6,19 +6,14 @@
     </a>
 </li>
 
-
-<li {% if app.request.attributes.get('_route') in ['backend_homepage'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+<li {% if app.request.attributes.get('_route') in ['security_user_list'] %} class="active open" {% else %} class="nav-item"{% endif %}>
     <a href="#">
         <i class="icon-group"></i>
         <span data-i18n="nav.dash.main" class="menu-title">Utilisateurs</span>
     </a>
     <ul class="menu-content">
-        <li {% if app.request.attributes.get('_route') in ['backend_homepage', 'security_user_list', 'agence_agence_show', 'agence_agence_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+        <li {% if app.request.attributes.get('_route') in ['security_user_list', 'security_user_new', 'security_user_edit', 'security_user_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
             <a href="{{ path('security_user_list') }}" data-i18n="nav.dash.main" class="menu-item">Liste des profils</a>
-            {#<a href="{{ path('agence_agence_homepage', {'type' : 'all'}) }}" data-i18n="nav.dash.main" class="menu-item">Liste des profils</a>#}
-        </li>
-        <li {% if app.request.attributes.get('_route') in ['agence_index', 'agence_new', 'agence_edit', 'agence_show'] %} class="active open" {% else %} class="nav-item"{% endif %}>
-            <a href="{{ path('backend_homepage') }}" data-i18n="nav.dash.main" class="menu-item">Liste des agences</a>
             {#<a href="{{ path('agence_agence_homepage', {'type' : 'all'}) }}" data-i18n="nav.dash.main" class="menu-item">Liste des profils</a>#}
         </li>
         <li {% if app.request.attributes.get('_route') in ['fos_user_profile_show', 'fos_user_profile_edit', 'fos_user_change_password'] %} class="active open" {% else %} class="nav-item"{% endif %}>

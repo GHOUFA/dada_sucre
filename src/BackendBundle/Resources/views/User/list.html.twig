@@ -16,30 +16,30 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="card">
-                        {#<div class="card-header">#}
-                            {#{% set type_sales = constant('Agence\\UserBundle\\Entity\\User::Type_SALES') %}#}
-                            {#<h4 class="card-title">Liste des commerciaux</h4>#}
-                            {#<a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>#}
-                            {#<div class="heading-elements">#}
-                                {#<ul class="list-inline mb-0">#}
-                                    {#<li><a href="{{ path('agence_agence_new', {'type': type_sales}) }}" class="btn btn-primary btn-min-width mr-1 mb-1"><i class="icon-plus"></i> Nouveau {{ type_sales|trans }}</a></li>#}
-                                    {#<li><a data-action="collapse"><i class="icon-minus4"></i></a></li>#}
-                                    {#<li><a data-action="reload"><i class="icon-reload"></i></a></li>#}
-                                    {#<li><a data-action="expand"><i class="icon-expand2"></i></a></li>#}
-                                    {#<li><a data-action="close"><i class="icon-cross2"></i></a></li>#}
-                                {#</ul>#}
-                            {#</div>#}
-                        {#</div>#}
+                        <div class="card-header">
+                            {% set type_user = constant('BackendBundle\\Entity\\User::Type_USER') %}
+                            {% set type_admin = constant('BackendBundle\\Entity\\User::Type_ADMIN') %}
+                            <h4 class="card-title">Liste des Users</h4>
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a href="{{ path('security_user_new', {'type': type_user}) }}" class="btn btn-primary btn-min-width mr-1 mb-1"><i class="icon-plus"></i> Nouveau {{ type_user|trans }}</a></li>
+                                    <li><a href="{{ path('security_user_new', {'type': type_admin}) }}" class="btn btn-primary btn-min-width mr-1 mb-1"><i class="icon-plus"></i> Nouveau {{ type_admin|trans }}</a></li>
+                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="card-body collapse in">
                             <div class="table-responsive">
-                                <table class="table" id="agencesTable">
+                                <table class="table" id="userTable">
                                     <thead class="bg-primary">
                                     <tr>
                                         <th>Login</th>
                                         <th>Email</th>
-                                        <th>Nom</th>
-                                        <th>Agence</th>
-                                        <th>Ville</th>
+                                        <th>Date</th>
+                                        <th>Roles</th>
                                         <th>Active</th>
                                         <th>Action</th>
                                     </tr>
@@ -49,12 +49,14 @@
                                         <tr>
                                             <th scope="row">{{ unit.username }}</th>
                                             <td>{{ unit.email }}</td>
-                                            <td>{{ unit.createdAt|date("Y-m-d H:i:s") }}</td>
                                             <td>
                                                 {%  if unit.createdAt %}
                                                     <a href="#">{{ unit.createdAt|date("Y-m-d H:i:s") }}</a>
                                                 {% endif %}
                                             </td>
+                                            <td>{% for role in unit.roles %}
+                                                    {{ role }}
+                                                {% endfor %}</td>
                                             <td></td>
                                             <td>
                                                 {% if unit.enabled %}
@@ -64,14 +66,14 @@
                                                 {% endif %}
                                             </td>
                                             <td>
-                                                {#<a href="{{ path('agence_agence_show', {'id': unit.id} ) }}"><i title="Afficher" class="icon-zoom-in2"></i></a>#}
-                                                {#<a href="{{ path('agence_agence_edit', {'id': unit.id} ) }}"><i title="Modifier" class="icon-edit"></i></a>#}
-                                                {#<a href="#" onclick="updatePassword({{ unit.id }})" data-toggle="modal" data-target="#updatePassword"><i title="Modifier password" class="icon-pencil"></i></a>#}
-                                                {#<a href="#" onclick="deleteUnit({{ unit.id }})" data-toggle="modal" data-target="#deleteUnit">#}
+                                                <a href="{{ path('security_user_show', {'id': unit.id} ) }}"><i title="Afficher" class="icon-zoom-in2"></i></a>
+                                                <a href="{{ path('security_user_edit', {'id': unit.id} ) }}"><i title="Modifier" class="icon-edit"></i></a>
+                                                <a href="#" onclick="updatePassword({{ unit.id }})" data-toggle="modal" data-target="#updatePassword"><i title="Modifier password" class="icon-pencil"></i></a>
+                                                <a href="#" onclick="deleteUnit({{ unit.id }})" data-toggle="modal" data-target="#deleteUnit">
                                                 {#{% if unit.enabled %}#}
-                                                    {#<a href="{{ path('agence_agence_desable', {'id':unit.id}) }}"><i title="Désactiver" class="icon-android-lock"></i></a>#}
+                                                    {#<a href="{{ path('security_user_desable', {'id':unit.id}) }}"><i title="Désactiver" class="icon-android-lock"></i></a>#}
                                                 {#{% else %}#}
-                                                    {#<a href="{{ path('agence_agence_enable', {'id':unit.id}) }}"><i title="Activer" class="icon-ios-unlocked"></i></a>#}
+                                                    {#<a href="{{ path('security_user_enable', {'id':unit.id}) }}"><i title="Activer" class="icon-ios-unlocked"></i></a>#}
                                                 {#{% endif %}#}
                                             </td>
                                         </tr>
@@ -83,203 +85,6 @@
                     </div>
                 </div>
             </div>
-
-            {#<div class="row">#}
-                {#<div class="col-xs-12">#}
-                    {#<div class="card">#}
-                        {#<div class="card-header">#}
-                            {#{% set type_contracting = constant('Agence\\UserBundle\\Entity\\User::Type_CONTRACTIONG') %}#}
-                            {#<h4 class="card-title">Liste des {{ type_contracting |trans }}s</h4>#}
-                            {#<a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>#}
-                            {#<div class="heading-elements">#}
-                                {#<ul class="list-inline mb-0">#}
-                                    {#<li><a href="{{ path('agence_agence_new', {'type': type_contracting}) }}" class="btn btn-primary btn-min-width mr-1 mb-1"><i class="icon-plus"></i> Nouveau {{ type_contracting |trans }}</a></li>#}
-                                    {#<li><a data-action="collapse"><i class="icon-minus4"></i></a></li>#}
-                                    {#<li><a data-action="reload"><i class="icon-reload"></i></a></li>#}
-                                    {#<li><a data-action="expand"><i class="icon-expand2"></i></a></li>#}
-                                    {#<li><a data-action="close"><i class="icon-cross2"></i></a></li>#}
-                                {#</ul>#}
-                            {#</div>#}
-                        {#</div>#}
-                        {#<div class="card-body collapse in">#}
-                            {#<div class="table-responsive">#}
-                                {#<table class="table" id="contractingTable">#}
-                                    {#<thead class="bg-primary">#}
-                                    {#<tr>#}
-                                        {#<th>Login</th>#}
-                                        {#<th>Email</th>#}
-                                        {#<th>Nom</th>#}
-                                        {#<th>Adresse</th>#}
-                                        {#<th>Type</th>#}
-                                        {#<th>Active</th>#}
-                                        {#<th>Action</th>#}
-                                    {#</tr>#}
-                                    {#</thead>#}
-                                    {#<tbody>#}
-                                    {#{% for unit in units_contracting %}#}
-                                        {#<tr>#}
-                                            {#<th scope="row">{{ unit.username }}</th>#}
-                                            {#<td>{{ unit.email }}</td>#}
-                                            {#<td>{{ unit.unite.name }}</td>#}
-                                            {#<td>{{ unit.unite.address }}</td>#}
-                                            {#<td>{{ unit.type | trans }}</td>#}
-                                            {#<td>#}
-                                                {#{% if unit.enabled %}#}
-                                                    {#<span class="tag tag-pill bg-success">oui</span>#}
-                                                {#{% else %}#}
-                                                    {#<span class="tag tag-pill bg-danger">non</span>#}
-                                                {#{% endif %}#}
-                                            {#</td>#}
-                                            {#<td>#}
-                                                {#<a href="{{ path('agence_agence_show', {'id': unit.id} ) }}"><i title="Afficher" class="icon-zoom-in2"></i></a>#}
-                                                {#<a href="{{ path('agence_agence_edit', {'id': unit.id} ) }}"><i title="Modifier" class="icon-edit"></i></a>#}
-                                                {#<a href="#" onclick="updatePassword({{ unit.id }})" data-toggle="modal" data-target="#updatePassword"><i title="Modifier password" class="icon-pencil"></i></a>#}
-                                                {#{% if unit.enabled %}#}
-                                                    {#<a href="{{ path('agence_agence_desable', {'id':unit.id}) }}"><i title="Désactiver" class="icon-android-lock"></i></a>#}
-                                                {#{% else %}#}
-                                                    {#<a href="{{ path('agence_agence_enable', {'id':unit.id}) }}"><i title="Activer" class="icon-ios-unlocked"></i></a>#}
-                                                {#{% endif %}#}
-                                                {#<a href="#" onclick="deleteUnit({{ unit.id }})" data-toggle="modal" data-target="#deleteUnit"><i class="icon-android-delete"></i></a>#}
-                                            {#</td>#}
-                                        {#</tr>#}
-                                    {#{% endfor %}#}
-                                    {#</tbody>#}
-                                {#</table>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-
-            {#<div class="row">#}
-                {#<div class="col-xs-12">#}
-                    {#<div class="card">#}
-                        {#<div class="card-header">#}
-                            {#{% set type_transport = constant('Agence\\UserBundle\\Entity\\User::Type_TRANSPORT') %}#}
-                            {#<h4 class="card-title">Liste des {{ type_transport |trans }}s</h4>#}
-                            {#<a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>#}
-                            {#<div class="heading-elements">#}
-                                {#<ul class="list-inline mb-0">#}
-                                    {#<li><a href="{{ path('agence_agence_new', {'type': type_transport}) }}" class="btn btn-primary btn-min-width mr-1 mb-1"><i class="icon-plus"></i> Nouveau {{ type_transport |trans }}</a></li>#}
-                                    {#<li><a data-action="collapse"><i class="icon-minus4"></i></a></li>#}
-                                    {#<li><a data-action="reload"><i class="icon-reload"></i></a></li>#}
-                                    {#<li><a data-action="expand"><i class="icon-expand2"></i></a></li>#}
-                                {#</ul>#}
-                            {#</div>#}
-                        {#</div>#}
-                        {#<div class="card-body collapse in">#}
-                            {#<div class="table-responsive">#}
-                                {#<table class="table" id="contractingTable">#}
-                                    {#<thead class="bg-primary">#}
-                                    {#<tr>#}
-                                        {#<th>Login</th>#}
-                                        {#<th>Email</th>#}
-                                        {#<th>Nom</th>#}
-                                        {#<th>Adresse</th>#}
-                                        {#<th>Type</th>#}
-                                        {#<th>Active</th>#}
-                                        {#<th>Action</th>#}
-                                    {#</tr>#}
-                                    {#</thead>#}
-                                    {#<tbody>#}
-                                    {#{% for unit in units_transport %}#}
-                                        {#<tr>#}
-                                            {#<th scope="row">{{ unit.username }}</th>#}
-                                            {#<td>{{ unit.email }}</td>#}
-                                            {#<td>{{ unit.unite.name }}</td>#}
-                                            {#<td>{{ unit.unite.address }}</td>#}
-                                            {#<td>{{ unit.type | trans }}</td>#}
-                                            {#<td>#}
-                                                {#{% if unit.enabled %}#}
-                                                    {#<span class="tag tag-pill bg-success">oui</span>#}
-                                                {#{% else %}#}
-                                                    {#<span class="tag tag-pill bg-danger">non</span>#}
-                                                {#{% endif %}#}
-                                            {#</td>#}
-                                            {#<td>#}
-                                                {#<a href="{{ path('agence_agence_show', {'id': unit.id} ) }}"><i title="Afficher" class="icon-zoom-in2"></i></a>#}
-                                                {#<a href="{{ path('agence_agence_edit', {'id': unit.id} ) }}"><i title="Modifier" class="icon-edit"></i></a>#}
-                                                {#<a href="#" onclick="updatePassword({{ unit.id }})" data-toggle="modal" data-target="#updatePassword"><i title="Modifier password" class="icon-pencil"></i></a>#}
-                                                {#{% if unit.enabled %}#}
-                                                    {#<a href="{{ path('agence_agence_desable', {'id':unit.id}) }}"><i title="Désactiver" class="icon-android-lock"></i></a>#}
-                                                {#{% else %}#}
-                                                    {#<a href="{{ path('agence_agence_enable', {'id':unit.id}) }}"><i title="Activer" class="icon-ios-unlocked"></i></a>#}
-                                                {#{% endif %}#}
-                                            {#</td>#}
-                                        {#</tr>#}
-                                    {#{% endfor %}#}
-                                    {#</tbody>#}
-                                {#</table>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-
-            {#<div class="row">#}
-                {#<div class="col-xs-12">#}
-                    {#<div class="card">#}
-                        {#<div class="card-header">#}
-                            {#{% set type_accounting = constant('Agence\\UserBundle\\Entity\\User::Type_ACCOUNTING') %}#}
-                            {#<h4 class="card-title">Liste des {{ type_accounting |trans }}s</h4>#}
-                            {#<a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>#}
-                            {#<div class="heading-elements">#}
-                                {#<ul class="list-inline mb-0">#}
-                                    {#<li><a href="{{ path('agence_agence_new', {'type': type_accounting}) }}" class="btn btn-primary btn-min-width mr-1 mb-1"><i class="icon-plus"></i> Nouveau {{ type_accounting |trans }}</a></li>#}
-                                    {#<li><a data-action="collapse"><i class="icon-minus4"></i></a></li>#}
-                                    {#<li><a data-action="reload"><i class="icon-reload"></i></a></li>#}
-                                    {#<li><a data-action="expand"><i class="icon-expand2"></i></a></li>#}
-                                {#</ul>#}
-                            {#</div>#}
-                        {#</div>#}
-                        {#<div class="card-body collapse in">#}
-                            {#<div class="table-responsive">#}
-                                {#<table class="table" id="contractingTable">#}
-                                    {#<thead class="bg-primary">#}
-                                    {#<tr>#}
-                                        {#<th>Login</th>#}
-                                        {#<th>Email</th>#}
-                                        {#<th>Nom</th>#}
-                                        {#<th>Adresse</th>#}
-                                        {#<th>Type</th>#}
-                                        {#<th>Active</th>#}
-                                        {#<th>Action</th>#}
-                                    {#</tr>#}
-                                    {#</thead>#}
-                                    {#<tbody>#}
-                                    {#{% for unit in units_accounting %}#}
-                                        {#<tr>#}
-                                            {#<th scope="row">{{ unit.username }}</th>#}
-                                            {#<td>{{ unit.email }}</td>#}
-                                            {#<td>{{ unit.unite.name }}</td>#}
-                                            {#<td>{{ unit.unite.address }}</td>#}
-                                            {#<td>{{ unit.type | trans }}</td>#}
-                                            {#<td>#}
-                                                {#{% if unit.enabled %}#}
-                                                    {#<span class="tag tag-pill bg-success">oui</span>#}
-                                                {#{% else %}#}
-                                                    {#<span class="tag tag-pill bg-danger">non</span>#}
-                                                {#{% endif %}#}
-                                            {#</td>#}
-                                            {#<td>#}
-                                                {#<a href="{{ path('agence_agence_show', {'id': unit.id} ) }}"><i title="Afficher" class="icon-zoom-in2"></i></a>#}
-                                                {#<a href="{{ path('agence_agence_edit', {'id': unit.id} ) }}"><i title="Modifier" class="icon-edit"></i></a>#}
-                                                {#<a href="#" onclick="updatePassword({{ unit.id }})" data-toggle="modal" data-target="#updatePassword"><i title="Modifier password" class="icon-pencil"></i></a>#}
-                                                {#{% if unit.enabled %}#}
-                                                    {#<a href="{{ path('agence_agence_desable', {'id':unit.id}) }}"><i title="Désactiver" class="icon-android-lock"></i></a>#}
-                                                {#{% else %}#}
-                                                    {#<a href="{{ path('agence_agence_enable', {'id':unit.id}) }}"><i title="Activer" class="icon-ios-unlocked"></i></a>#}
-                                                {#{% endif %}#}
-                                            {#</td>#}
-                                        {#</tr>#}
-                                    {#{% endfor %}#}
-                                    {#</tbody>#}
-                                {#</table>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
         </section>
     </div>
 
@@ -380,12 +185,12 @@
                 $('#iduserP').val(null);
                 $('#submit-modalP').prop('disabled', 'disabled');
             }
-        }
+        };
 
         var cancelUpdateP = function(){
             $('#iduserP').val(null);
             $('#submit-modalP').prop('disabled', 'disabled');
-        }
+        };
 
         var deleteUnit = function(id){
             if($.isNumeric(id)){
@@ -395,23 +200,16 @@
                 $('#iduser').val(null);
                 $('#submit-modal').prop('disabled', 'disabled');
             }
-        }
+        };
 
         var cancelDeleteUnit = function(){
             $('#iduser').val(null);
             $('#submit-modal').prop('disabled', 'disabled');
-        }
+        };
 
         $(document).ready(function(){
-            $('#agencesTable').DataTable();
+            $('#userTable').DataTable();
         });
 
-        $(document).ready(function(){
-            $('#salesTable').DataTable();
-        });
-
-        $(document).ready(function(){
-            $('#contractingTable').DataTable();
-        });
     </script>
 {% endblock %}

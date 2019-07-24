@@ -1,0 +1,149 @@
+{% extends "::base.html.twig" %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+
+    <li class="breadcrumb-item">
+        <a href="{{ path('agence_agence_homepage') }}">Gestion des Profils</a>
+    </li>
+    <li class="breadcrumb-item active">
+        Detail {{ unit.type|trans }}
+    </li>
+{% endblock %}
+
+{% block body %}
+
+    <div class="content-body">
+        <section>
+            <div class="row match-height">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title" id="basic-layout-form">Detail {{ unit.type|trans }}</h4>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a href="{{ path('agence_agence_edit', {'id': unit.id} ) }}" class="btn btn-danger btn-min-width mr-1 mb-1"><i class="icon-edi"></i> Modifier</a></li>
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body collapse in">
+                            <div class="card-block">
+                                <div class="form-body">
+                                    <h4 class="form-section">Informations de connexion</h4>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="login">Login</label>
+                                                <label id="login" class="form-control">{{ unit.username }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="email">Adresse email</label>
+                                                <label id="email" class="form-control">{{ unit.email }}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% if unit.type != constant('Agence\\UserBundle\\Entity\\User::Type_SALES') %}
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="isActive">Active</label>
+                                                <label id="isActive" class="form-control">
+                                                    {% if unit.enabled %}
+                                                        <span class="tag tag-pill bg-success">oui</span>
+                                                    {% else %}
+                                                        <span class="tag tag-pill bg-danger">non</span>
+                                                    {% endif %}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="name">Nom</label>
+                                                <label id="name" class="form-control">{{ unit.unite.name }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="address">Adresse</label>
+                                                <label id="address" class="form-control">{{ unit.unite.address }}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% else %}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="name">Nom</label>
+                                                    <label id="name" class="form-control">{{ unit.unite.name }}</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="isActive">Active</label>
+                                                    <label id="isActive" class="form-control">
+                                                        {% if unit.enabled %}
+                                                            <span class="tag tag-pill bg-success">oui</span>
+                                                        {% else %}
+                                                            <span class="tag tag-pill bg-danger">non</span>
+                                                        {% endif %}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="description">Description</label>
+                                                <textarea id="description"  class="form-control" rows="10" cols="150" disabled>{{ unit.unite.description }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-block">
+                                <div class="form-body">
+                                    {% if unit.type == constant('Agence\\UserBundle\\Entity\\User::Type_SALES') %}
+                                        {% if unit.agence is not null %}
+                                            <h4 class="form-section">Informations agence</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="name">Nom de l'agence</label>
+                                                        <label id="name" class="form-control">{{ unit.agence.name }}</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="address">Adresse</label>
+                                                        <label id="address" class="form-control">{{ unit.agence.address }}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="description">Description agence</label>
+                                                        <textarea id="description"  class="form-control" rows="10" cols="150" disabled>{{ unit.agence.description }}</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}

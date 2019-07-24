@@ -13,6 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
+    const ROLE_USER = "ROLE_USER";
+    const Type_USER = "user";
+    const ROLE_ADMIN = "ROLE_ADMIN";
+    const Type_ADMIN = "admin";
     use TimestampableTrait;
     /**
      * @ORM\Id
@@ -28,5 +32,30 @@ class User extends BaseUser
         $this->setEnabled(true);
         $this->createdAt = new \DateTime();
         $this->modifiedAt = new \DateTime();
+    }
+    /**
+     * @return string
+     */
+    public function typeUser(){
+        return User::Type_USER;
+    }
+    
+    /**
+     * @return string
+     */
+    public function typeAdmin(){
+        return User::Type_USER;
+    }
+    static function roleByType($type){
+        $role = "";
+        switch($type){
+            case User::Type_USER:
+                $role = User::ROLE_USER;
+                break;
+            case User::Type_ADMIN:
+                $role = User::ROLE_ADMIN;
+                break;
+        }
+        return $role;
     }
 }

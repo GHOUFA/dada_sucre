@@ -2,3 +2,10 @@ services:
 #    backend.example:
 #        class: src\BackendBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    Backend_Notif:
+            class: BackendBundle\Services\NotifService
+            arguments:
+                - "@service_container"
+                - "@request_stack"
+                - "@session"
