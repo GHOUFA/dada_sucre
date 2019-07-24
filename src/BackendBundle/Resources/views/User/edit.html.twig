@@ -1,14 +1,14 @@
-{% extends "::base.html.twig" %}
+{% extends "::baseback.html.twig" %}
 
 {% block breadcrumb %}
     {{ parent() }}
 
     <li class="breadcrumb-item">
-        <a href="{{ path('agence_agence_homepage') }}">Gestion des Profils</a>
+        <a href="{{ path('backend_homepage') }}">Gestion des Profils</a>
     </li>
-    <li class="breadcrumb-item active">
-        {{ unit.type|titleEditAgence ~ unit.type|trans }}
-    </li>
+    {#<li class="breadcrumb-item active">#}
+        {#{{ unit.type|titleEditAgence ~ unit.type|trans }}#}
+    {#</li>#}
 {% endblock %}
 
 {% block body %}
@@ -20,11 +20,11 @@
                     <div class="card">
                         <div class="card-header">
                             {#<h4 class="card-title" id="basic-layout-form">Cr&eacute;ation d'une agence</h4>#}
-                            <h4 class="card-title" id="basic-layout-form">{{ unit.type|titleEditAgence ~ unit.type|trans }}</h4>
+                            {#<h4 class="card-title" id="basic-layout-form">{{ unit.type|titleEditAgence ~ unit.type|trans }}</h4>#}
                             {#<a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>{{ type |trans }}#}
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
-                                    <li><a data-action="reload" href="{{ path('agence_agence_edit', {'id': unit.id} ) }}"><i class="icon-reload"></i></a></li>
+                                    <li><a data-action="reload" href="{{ path('security_user_edit', {'id': unit.id} ) }}"><i class="icon-reload"></i></a></li>
                                     <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
                                     <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
                                 </ul>
@@ -54,23 +54,23 @@
                                     <h4 class="form-section">Informations g&eacute;n&eacute;rales</h4>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <div class="form-group">
-                                                {{ form_row(form.unite.name, { 'attr': {'class': 'form-control' ,'required':'required'}}) }}
-                                            </div>
+                                            {#<div class="form-group">#}
+                                                {#{{ form_row(form.unite.name, { 'attr': {'class': 'form-control' ,'required':'required'}}) }}#}
+                                            {#</div>#}
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                {% if unit.type == constant('Agence\\UserBundle\\Entity\\User::Type_SALES') %}
-                                                    {{ form_row(form.agence, { 'attr': {'class': 'form-control' ,'required':'required'}}) }}
-                                                {% else %}
-                                                    {{ form_row(form.unite.address, { 'attr': {'class': 'form-control' ,'required':'required'}}) }}
-                                                {% endif %}
-                                            </div>
-                                        </div>
+                                        {#<div class="col-sm-6">#}
+                                            {#<div class="form-group">#}
+                                                {#{% if unit.type == constant('Agence\\UserBundle\\Entity\\User::Type_SALES') %}#}
+                                                    {#{{ form_row(form.agence, { 'attr': {'class': 'form-control' ,'required':'required'}}) }}#}
+                                                {#{% else %}#}
+                                                    {#{{ form_row(form.unite.address, { 'attr': {'class': 'form-control' ,'required':'required'}}) }}#}
+                                                {#{% endif %}#}
+                                            {#</div>#}
+                                        {#</div>#}
                                         <div class="col-md-12">
-                                            <div class="form-group">
-                                                {{ form_row(form.unite.description, { 'attr': {'class': 'form-control', 'rows': 10, 'cols': '150'}}) }}
-                                            </div>
+                                            {#<div class="form-group">#}
+                                                {#{{ form_row(form.unite.description, { 'attr': {'class': 'form-control', 'rows': 10, 'cols': '150'}}) }}#}
+                                            {#</div>#}
                                         </div>
                                     </div>
                                     {{ form_rest(form) }}

@@ -1,5 +1,11 @@
 {% extends 'baseback.html.twig' %}
 
 {% block body %}
+    </nav>
+    <div class="jumbotron">
+        <h1>Bienvenue {{ app.getUser().getUsername }}</h1>
 
+        <p>Vous êtes connectés à <strong>DADA SUCRE</strong> pour la vente du  <strong>SUCRE</strong>
+            .</p>
+    </div>
 {% endblock %}

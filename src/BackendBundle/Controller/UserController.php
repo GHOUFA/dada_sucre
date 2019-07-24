@@ -94,7 +94,6 @@ class UserController extends Controller
         if(!$user)
             $notif_service->addErrorNotification('Données invalides');
         else{
-            if($user->getType()){
                 $em = $this->getDoctrine()->getManager();
                 $form = $this->createForm(UserType::class, $user);
 
@@ -108,7 +107,7 @@ class UserController extends Controller
                             array('username' => $user->getUsername())
                         );
 
-                        $users_by_email = $em->getRepository('BckendBundle:User')->findBy(
+                        $users_by_email = $em->getRepository('BackendBundle:User')->findBy(
                             array('email' => $user->getEmail())
                         );
 
@@ -138,7 +137,7 @@ class UserController extends Controller
 
                             $notif_service->successNotification();
 
-                            return $this->redirectToRoute('agence_agence_homepage', array(), 301);
+                            return $this->redirectToRoute('security_user_list', array(), 301);
 
                         } else
                             $notif_service->addErrorNotification('Données invalides');
@@ -147,10 +146,8 @@ class UserController extends Controller
                         $notif_service->errorDataNotification();
                     }
                 }
-            }
-            else $notif_service->addErrorNotification('Données invalides');
 
-            return $this->render('@AgenceAgence/Default/edit.html.twig', array(
+            return $this->render('@Backend/User/edit.html.twig', array(
                 'form' => $form->createView(),
                 'unit' => $user
             ));
