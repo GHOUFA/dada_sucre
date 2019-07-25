@@ -9,24 +9,10 @@
     <div class="main-menu-content">
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
 
-            {#{{ render(controller('AgenceDefaultBundle:Default:getSideBar')) }}#}
-            {% include(':elements/menus:super_admin.html.twig') %}
-            {% if is_granted('ROLE_SUPER_ADMIN') %}
+            {% if is_granted('ROLE_ADMIN') %}
                 {% include(':elements/menus:super_admin.html.twig') %}
-                {#{{ knp_menu_render('AgenceManagerBundle:Builder:superAdminMenu') }}#}
-            {% elseif is_granted('ROLE_SALES') %}
+            {% elseif is_granted('ROLE_USER') %}
                 {% include(':elements/menus:sales.html.twig') %}
-                {#{{ knp_menu_render('AgenceManagerBundle:Builder:salesMenu') }}#}
-            {% elseif is_granted('ROLE_ACCOUNTING') %}
-                {% include(':elements/menus:accounting.html.twig') %}
-            {% elseif is_granted('ROLE_CONTRACTIONG') %}
-                {% include(':elements/menus:contracting.html.twig') %}
-                {#{{ knp_menu_render('AgenceManagerBundle:Builder:contractingMenu') }}#}
-            {% elseif is_granted('ROLE_TRANSPORT') %}
-                {% include(':elements/menus:transport.html.twig') %}
-            {#{% elseif is_granted('ROLE_AGENCE') %}#}
-                {#{% include(':elements/menus:agence.html.twig') %}#}
-                {#&#123;&#35;{{ knp_menu_render('AgenceManagerBundle:Builder:agenceMenu') }}&#35;&#125;#}
             {% endif %}
 
         </ul>
