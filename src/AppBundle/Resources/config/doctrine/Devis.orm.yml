@@ -1,0 +1,26 @@
+AppBundle\Entity\Devis:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\DevisRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        compane:
+            type: string
+            length: 255
+        localite:
+            type: string
+            length: 255
+        typeProduct:
+            type: boolean
+            column: type_product
+        quality:
+            type: smallint
+    lifecycleCallbacks: {  }

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Devi</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ devi.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ devi.name }}</td>
+            </tr>
+            <tr>
+                <th>Compane</th>
+                <td>{{ devi.compane }}</td>
+            </tr>
+            <tr>
+                <th>Localite</th>
+                <td>{{ devi.localite }}</td>
+            </tr>
+            <tr>
+                <th>Typeproduct</th>
+                <td>{{ devi.typeProduct }}</td>
+            </tr>
+            <tr>
+                <th>Quality</th>
+                <td>{{ devi.quality }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('devis_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('devis_edit', { 'id': devi.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

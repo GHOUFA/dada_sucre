@@ -6,6 +6,10 @@ app:
     resource: '@AppBundle/Controller/'
     type: annotation
 
+app_devis:
+    resource: "@AppBundle/Resources/config/routing/devis.yml"
+    prefix:   /devis
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 

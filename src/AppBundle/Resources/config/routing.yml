@@ -1,0 +1,4 @@
+#app_devis:
+#    resource: "@AppBundle/Resources/config/routing/devis.yml"
+#    prefix:   /devis
+
