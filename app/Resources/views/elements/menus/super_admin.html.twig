@@ -31,3 +31,14 @@
         {#</li>#}
     </ul>
 </li>
+<li {% if app.request.attributes.get('_route') in ['commandes_list'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+    <a href="#">
+        <i class="icon-group"></i>
+        <span data-i18n="nav.dash.main" class="menu-title">Commandes</span>
+    </a>
+    <ul class="menu-content">
+        <li {% if app.request.attributes.get('_route') in ['commandes_list', 'commandes_new', 'commandes_edit'] %} class="active open" {% else %} class="nav-item"{% endif %}>
+            <a href="{{ path('security_user_list') }}" data-i18n="nav.dash.main" class="menu-item">Liste des Commandes</a>
+        </li>
+    </ul>
+</li>

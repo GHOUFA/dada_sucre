@@ -39,7 +39,7 @@
                                         <th>Login</th>
                                         <th>Email</th>
                                         <th>Date</th>
-                                        <th>Roles</th>
+                                        <th>Mobile</th>
                                         <th>Active</th>
                                         <th>Action</th>
                                     </tr>
@@ -54,10 +54,7 @@
                                                     <a href="#">{{ unit.createdAt|date("Y-m-d H:i:s") }}</a>
                                                 {% endif %}
                                             </td>
-                                            <td>{% for role in unit.roles %}
-                                                    {{ role }}
-                                                {% endfor %}</td>
-                                            <td>
+                                            <td>{{ unit.phone }}<td>
                                                 {% if unit.enabled %}
                                                     <span class="tag tag-pill bg-success">oui</span>
                                                 {% else %}
